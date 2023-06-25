@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Conferences</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-top: 50px;
+      }
+
+      table {
+        width: 80%;
+        margin: 30px auto;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #0099cc;
+        color: #fff;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: flex-start;
+        margin: 30px;
+        position: fixed;
+        bottom: 10px;
+      }
+
+      .buttons button {
+        padding: 10px 15px;
+        font-size: 14px;
+        border: none;
+        background-color: #0099cc;
+        color: #fff;
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .buttons button:hover {
+        background-color: #0077b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All Conferences</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Venue</th>
+          <th>Theme</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for conference in data %}
+        <tr>
+          <td>{{ conference.name }}</td>
+          <td>{{ conference.category }}</td>
+          <td>{{ conference.date }}</td>
+          <td>{{ conference.venue }}</td>
+          <td>{{ conference.theme }}</td>
+          <td>
+            <a href="./{{ conference.id }}"><button>View Details</button></a>
+            <a href="./{{ conference.id }}/update"><button>Update</button></a>
+            <a href="./{{ conference.id }}/delete"><button>Delete</button></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="buttons">
+      <a href="/"><button>Go to Home</button></a>
+      <a href="/conferences/create"><button>Add New Conference</button></a>
+    </div>
+  </body>
+</html>

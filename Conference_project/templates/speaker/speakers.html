@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      /* CSS code for the first page */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .info-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 100px;
+      }
+
+      .info {
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speakers</title>
+  </head>
+  <body>
+    <h1
+      style="
+        text-align: center;
+        width: 100%;
+        margin-top: 30px;
+        color: rgb(25, 25, 159);
+      "
+    >
+      ALL SPEAKERS
+    </h1>
+    <div class="info-container">
+      {% for y in data %}
+
+      <div class="info">
+        <ul>
+          {% for speaker in speakers %}
+          <li>{{ speaker.name }} - {{ speaker.areas_of_expertise }}</li>
+          {% empty %}
+          <li>No speakers available</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% endfor %}
+    </div>
+  </body>
+</html>
